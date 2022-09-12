@@ -1,78 +1,63 @@
 <template>
-    <div class="hidden md:flex">
-        <Carousel :itemsToShow="1.45" :autoplay="2200" :wrap-around="true">
-            <Slide v-for="slide in images" :key="slide">
-            <div class="carousel__item">
-                <img :src="slide" alt="">
-            </div>
-            </Slide>
 
-            <template #addons>
-            <Pagination/>
-            </template>
-        </Carousel>
-    </div>
-    <div class="md:hidden">
-        <Carousel :itemsToShow="1" :autoplay="2200" :wrap-around="true">
-            <Slide v-for="slide in images" :key="slide">
-            <div class="carousel__item">
-                <img :src="slide" alt="">
-            </div>
-            </Slide>
+    <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="w-screen">
+        <slide v-for="slide in data" :key="slide">
+            <Card :data="slide" />
+        </slide>
 
-            <template #addons>
-            <Pagination/>
-            </template>
-        </Carousel>
-    </div>
+        <template #addons>
+
+            <Navigation class="mx-10" />
+
+
+        </template>
+    </carousel>
+
+
 </template>
-
+  
 <script>
-import { defineComponent, ref } from 'vue'
-import { Carousel, Pagination, Slide } from 'vue3-carousel';
-
+// If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
 import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Navigation } from 'vue3-carousel';
+import { defineAsyncComponent, ref } from 'vue'
 
-export default defineComponent({
-  name: 'Autoplay',
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-  },
-  setup(){
+export default {
+    name: 'App',
+    components: {
+        Carousel,
+        Slide,
+        Navigation,
+        Card: defineAsyncComponent(() => import("./CardComponent.vue"))
+    },
+    setup: () => {
+        const data = ref([{ title: 'san antonio' }, { title: 'san fernando' }, { title: 'santa ana' }, { title: 'san patricio' }, { title: 'san osos' }])
+        return {
+            data
+        }
+    },
+    data: () => ({
 
-    const images = ref([
-        'https://www.casascumbres.mx/wp-content/uploads/2022/06/Casas-Cumbres_Venta-de-casas_San-Luis-Potosi-_SLP_Zona-industrial-_Real-Estate_Bienes-Raices-1300x650.png',
-        'https://www.casascumbres.mx/wp-content/uploads/2022/06/Casas-Cumbres_Venta-de-casas_San-Luis-Potosi-_SLP_Zona-industrial-_Real-Estate_Bienes-Raices-3-1300x650.png',
-        'https://www.casascumbres.mx/wp-content/uploads/2022/06/Casas-Cumbres_Venta-de-casas_San-Luis-Potosi-_SLP_Zona-industrial-_Real-Estate_Bienes-Raices-5-1300x650.png',
-        'https://www.casascumbres.mx/wp-content/uploads/2022/06/Casas-Cumbres_Venta-de-casas_San-Luis-Potosi-_SLP_Zona-industrial-_Real-Estate_Bienes-Raices-6-1300x650.png'
-    ])
+        // carousel settings
+        settings: {
+            itemsToShow: 3,
+            snapAlign: 'center',
+        },
+        // breakpoints are mobile first
+        // any settings not specified will fallback to the carousel settings
+        breakpoints: {
+            // 700px and up
+            700: {
+                itemsToShow: 3,
+                snapAlign: 'center',
+            },
+            // 1024 and up
+            1024: {
+                itemsToShow: 3,
+                snapAlign: 'center',
+            },
+        },
+    }),
 
-    return{
-        images
-    }
-  }
-});
+};
 </script>
-
-<style scoped>
-    .carousel__slide > .carousel__item {
-    transform: scale(1);
-    opacity: 0.5;
-    transition: 0.5s;
-    }
-    .carousel__slide--visible > .carousel__item {
-    opacity: 1;
-    transform: rotateY(0);
-    }
-    .carousel__slide--next > .carousel__item {
-    transform: scale(0.9) translate(-10px);
-    }
-    .carousel__slide--prev > .carousel__item {
-    transform: scale(0.9) translate(10px);
-    }
-    .carousel__slide--active > .carousel__item {
-    transform: scale(1.1);
-    }
-</style>

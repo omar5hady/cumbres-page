@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "flowbite": "^1.4.7",
     "vue": "^3.2.37",
+    "vue-material-design-icons": "^5.1.2",
     "vue-router": "^4.1.2",
     "vue3-carousel": "^0.1.40"
   },

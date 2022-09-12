@@ -2,16 +2,13 @@
   <div class="inline-block p-6 text-2xl font-extrabold text-center">
     <CarouselComponent></CarouselComponent>
   </div>
-  <div
-    ref="section"
-    class="bg-white p-6 text-2xl font-extrabold text-center items-center"
-  >
+  <div ref="section" class="bg-white p-6 text-2xl font-extrabold text-center items-center">
     <GalleryComponent></GalleryComponent>
   </div>
   <div class="p-6 text-2xl font-extrabold text-center items-center">
     <HorizontalAnimation :section="section"></HorizontalAnimation>
   </div>
-  
+
 </template>
 
 <script>
@@ -30,10 +27,10 @@ export default {
     ),
   },
 
-  setup(){
+  setup() {
     const section = ref(null)
 
-    return{
+    return {
       section
     }
   }
