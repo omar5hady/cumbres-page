@@ -2,9 +2,7 @@
 
     <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="w-screen">
         <slide v-for="slide in data.data" :key="slide">
-            <div class="carousel__item">
                 <Card :data="slide" />
-            </div>
             
         </slide>
 
@@ -78,24 +76,3 @@ export default {
 
 };
 </script>
-
-<style scoped>
-    .carousel__slide > .carousel__item {
-    transform: scale(1);
-    opacity: 0.5;
-    transition: 0.5s;
-    }
-    .carousel__slide--visible > .carousel__item {
-    opacity: 1;
-    transform: rotateY(0);
-    }
-    .carousel__slide--next > .carousel__item {
-    transform: scale(0.9) translate(-10px);
-    }
-    .carousel__slide--prev > .carousel__item {
-    transform: scale(0.9) translate(10px);
-    }
-    .carousel__slide--active > .carousel__item {
-    transform: scale(1.1);
-    }
-</style>

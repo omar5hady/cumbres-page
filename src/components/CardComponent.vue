@@ -10,7 +10,7 @@
 
             <div class="transform translate-y-8">
                 <p class="font-bebas text-3xl text-center tracking-wide font-medium text-yellow-300">
-                    ${{formatNumber(data.precio_base.toFixed(2))}}</p>
+                    ${{formatNumber((data.precio_base+data.ajuste+data.excedente_terreno).toFixed(2))}}</p>
                 <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'" class="font-bebas font-extralight text-sm text-right text-yellow-300">En privada</p>
                 <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'" class="font-bebas text-sm text-right text-yellow-300">En exterior</p>
             </div>
