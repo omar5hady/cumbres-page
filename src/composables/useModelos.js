@@ -1,18 +1,11 @@
-import { ref } from "vue";
 import axios from "axios";
 
-export const useModelos = async () => {
-  const data = ref([]);
-  try {
-    const modelos = await axios.get(
-      "https://siicumbres.com/api/precios/lista?proyecto=Catara&privada=Varese&modelo=Monet"
-    );
+export const useModelos = async (proyecto, privada, modelo) => {
+  const url = `https://siicumbres.com/api/precios/lista?proyecto=${proyecto}&privada=${privada}&modelo=${modelo}`;
+  let data = [];
 
-    data.value = modelos.data;
-    console.log(data.value);
-  } catch (error) {
-    console.log(error);
-  }
+  const response = await axios.get(url);
+  data = response.data;
 
   return data;
 };

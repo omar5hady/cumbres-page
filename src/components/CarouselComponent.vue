@@ -1,7 +1,7 @@
 <template>
 
     <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="w-screen">
-        <slide v-for="slide in data" :key="slide">
+        <slide v-for="slide in data.data" :key="slide">
             <Card :data="slide" />
         </slide>
 
@@ -20,10 +20,13 @@
 // If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent } from 'vue'
 
 export default {
     name: 'App',
+    props: {
+        data: Object
+    },
     components: {
         Carousel,
         Slide,
@@ -31,13 +34,9 @@ export default {
         Card: defineAsyncComponent(() => import("./CardComponent.vue"))
     },
     setup: () => {
-        const data = ref([{ title: 'san antonio' }, { title: 'san fernando' }, { title: 'santa ana' }, { title: 'san patricio' }, { title: 'san osos' }])
-        return {
-            data
-        }
+
     },
     data: () => ({
-
         // carousel settings
         settings: {
             itemsToShow: 3,
@@ -48,7 +47,7 @@ export default {
         breakpoints: {
             // 700px and up
             700: {
-                itemsToShow: 3,
+                itemsToShow: 2,
                 snapAlign: 'center',
             },
             // 1024 and up
@@ -56,6 +55,16 @@ export default {
                 itemsToShow: 3,
                 snapAlign: 'center',
             },
+
+            600: {
+                itemsToShow: 1,
+                snapAlign: 'center'
+            },
+
+            300: {
+                itemsToShow: 1,
+                snapAlign: 'center'
+            }
         },
     }),
 

@@ -3,7 +3,7 @@
     <div class="inline-block text-2xl font-extrabold text-center">
         Precios
 
-        <CarouselComponent />
+        <CarouselComponent :data={data} />
 
     </div>
 
@@ -12,9 +12,11 @@
 </template>
 
 <script>
-import { defineAsyncComponent, onMounted } from 'vue'
+import { defineAsyncComponent, ref, toRaw } from 'vue'
 import CarouselComponent from '../components/CarouselComponent.vue';
 import { useModelos } from '../composables/useModelos';
+import { useRoute } from 'vue-router'
+
 
 export default {
     components: {
@@ -23,25 +25,20 @@ export default {
         CarouselComponent,
     },
 
+    async setup() {
+        const data = ref();
+        const route = useRoute();
+        const proyecto = route?.params?.proyecto;
+        const privada = route?.params?.privada;
+        const modelo = route?.params?.modelo;
 
-    setup: () => {
+        data.value = await useModelos(proyecto, privada, modelo);
 
-        const getModelos = async () => {
-            const data = await useModelos();
-           
+        return {
+            data
         }
 
-        onMounted(() => {
-
-            getModelos();
-
-        });
     },
-
-    methods: {
-
-    }
-
 
 }
 </script>
