@@ -1,10 +1,14 @@
 <template>
     <!-- <NavBar></NavBar> -->
+    <div class="inline-block p-6 text-2xl font-extrabold text-center">
+    </div>
     <div class="inline-block text-2xl font-extrabold text-center">
-        Precios
 
         <CarouselComponent :data={data} />
 
+    </div>
+
+    <div class="inline-block p-6 text-2xl font-extrabold text-center">
     </div>
 
 

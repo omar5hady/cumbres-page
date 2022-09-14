@@ -5,7 +5,7 @@
                 <h1 class="mb-6 text-lg font-semibold text-gray-400 uppercase dark:text-gray-400">Contáctanos</h1>
                 <ul class="text-gray-300 dark:text-gray-400">
                     <li class="mb-4">
-                        WhatsApp Ventas: <a href="#" class="hover:text-green-900 hover:font-bold hover:underline">(444) 160 6071</a>
+                        WhatsApp Ventas: <a href="https://api.whatsapp.com/send/?phone=5214441606071&text&type=phone_number&app_absent=0" target="_blank" class="hover:text-green-900 hover:font-bold hover:underline">(444) 160 6071</a>
                     </li>
                     <li class="mb-4">
                         Catâra Ventas: <a href="#" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 168 7062</a>

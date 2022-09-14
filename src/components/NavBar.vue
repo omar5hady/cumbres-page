@@ -1,7 +1,7 @@
 <template>
   <nav>
     <!-- Desktop menu -->
-    <div class="bg-primary-900">
+    <div class="bg-secondary-900">
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between">
           <!--Menu-->
