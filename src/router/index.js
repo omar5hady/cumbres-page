@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
+  { 
+      path: '/', 
+      redirect :'/precios'
+  },
   {
-    path: "/precios/:proyecto?/:privada?/:modelo?",
+    path: "/precios",
     name: "home",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/PreciosView.vue"),

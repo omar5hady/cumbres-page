@@ -32,9 +32,10 @@ export default {
     async setup() {
         const data = ref();
         const route = useRoute();
-        const proyecto = route?.params?.proyecto;
-        const privada = route?.params?.privada;
-        const modelo = route?.params?.modelo;
+        console.log(route.query.proyecto)
+        const proyecto = route?.query.proyecto
+        const privada = route?.query.privada
+        const modelo = route?.query.modelo
 
         data.value = await useModelos(proyecto, privada, modelo);
 
