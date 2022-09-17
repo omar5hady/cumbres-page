@@ -17,19 +17,19 @@
             <div class="transform translate-y-8">
                 <div class="flex items-center justify-center">
                     <RulerSquareIcon fillColor="#ffffff" />
-                    <span class="font-bebas text-white font-normal text-lg">{{data.construccion.toFixed(1)}} m²</span>
+                    <span class="font-bebas text-yellow-300 font-normal text-lg ">{{data.construccion.toFixed(1)}} m²</span>
 
                     <CropSquareIcon fillColor="#ffffff" />
-                    <span class="font-bebas text-white font-normal text-lg">{{data.terreno_m > data.terreno ?
+                    <span class="font-bebas text-yellow-300 font-normal text-lg">{{data.terreno_m > data.terreno ?
                     data.terreno_m.toFixed(1) : data.terreno.toFixed(1)}} m²</span>
 
 
                 </div>
                 <div class="flex items-center justify-center space-x-1">
                     <MapSearchIcon fillColor="#ffffff" :size="20" />
-                    <span class="font-bebas text-white font-normal text-lg">Mzn. {{data.manzana}}</span>
+                    <span class="font-bebas text-yellow-300 font-normal text-lg">Mzn. {{data.manzana}}</span>
                     <MapMarkerRadiusIcon fillColor="#ffffff" :size="18" />
-                    <span class="font-bebas text-white font-normal text-lg">Lt. {{data.num_lote}} {{(data.sublote) ? 'Int. '.data.sublote:''}}</span>
+                    <span class="font-bebas text-yellow-300 font-normal text-lg">Lt. {{data.num_lote}} {{(data.sublote) ? 'Int. '.data.sublote:''}}</span>
                 </div>
             </div>
 
