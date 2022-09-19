@@ -1,23 +1,25 @@
 <template>
     <!-- <NavBar></NavBar> -->
-    <div class="inline-block p-6 text-2xl font-extrabold text-center">
+
+
+    <div class="flex flex-1 flex-col py-5 ">
+        <LoadComponent v-if="!data" color="#D81B60"/>
+        <CarouselComponent :data={data} v-if="data?.length > 0" />
+
+        <div v-if="data?.length == 0" class="p-10">
+            <h1 class="text-center text-2xl font-bebas text-gray-400">No hay resultados disponibles por el momento.</h1>
+        </div>
+
+
     </div>
-    <div class="inline-block text-2xl font-extrabold text-center">
-
-        <CarouselComponent :data={data} />
-
-    </div>
-
-    <div class="inline-block p-6 text-2xl font-extrabold text-center">
-    </div>
-
 
 
 </template>
 
 <script>
-import { defineAsyncComponent, ref, toRaw } from 'vue'
+import { defineAsyncComponent, onMounted, ref } from 'vue'
 import CarouselComponent from '../components/CarouselComponent.vue';
+import LoadComponent from '../components/LoadComponent.vue';
 import { useModelos } from '../composables/useModelos';
 import { useRoute } from 'vue-router'
 
@@ -27,18 +29,24 @@ export default {
         NavBar: defineAsyncComponent(() => import("../components/NavBar.vue")),
         Card: defineAsyncComponent(() => import("../components/CardComponent.vue")),
         CarouselComponent,
+        LoadComponent
     },
 
     async setup() {
         const data = ref();
         const route = useRoute();
-        console.log(route.query.proyecto)
+        console.log(data.value)
         const proyecto = route?.query.proyecto
         const privada = route?.query.privada
         const modelo = route?.query.modelo
 
-        data.value = await useModelos(proyecto, privada, modelo);
+        onMounted(async () => {
+            data.value = await useModelos(proyecto, privada, modelo);
 
+        });
+
+
+        console.log(data.value)
         return {
             data
         }
