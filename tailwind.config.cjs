@@ -44,7 +44,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        card: "url('./assets/cardBackground.jpg')",
+        card: "url('./assets/FondoOficial.png')",
       },
     },
   },

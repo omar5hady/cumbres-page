@@ -1,15 +1,18 @@
 <template>
 
-    <div class="bg-card bg-cover rounded-xl w-[380px] h-[526px]">
+    <div class="bg-card relative bg-cover rounded-xl w-[380px] h-[526px]">
+        <img class="absolute top-3 right-6"
+            :src="imageSrc(data.proyecto.replace(/\s/g, '').toLowerCase(),'logosFraccionamientos')" width="280"
+            alt="no image" height="200" />
         <div class="p-0 flex flex-col justify-center items-center mt-24">
             <div>
                 <Title :title="data.prototipo" />
             </div>
-            <img class="translate-y-10" :src="imageSrc(data.prototipo.replace(/\s/g, '').toLowerCase())"
+            <img class="translate-y-10" :src="imageSrc(data.prototipo.replace(/\s/g, '').toLowerCase(),'casas')"
                 alt="product image" width="180" height="190" />
 
             <div class="transform translate-y-8">
-                <p class="font-bebas text-3xl text-center tracking-wide font-medium text-yellow-300">
+                <p class="font-bebas text-3xl text-center tracking-wide font-medium z-10 text-yellow-300">
                     ${{formatNumber((data.precio_base+data.ajuste+data.excedente_terreno).toFixed(2))}}</p>
                 <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
                     class="font-bebas font-extralight text-sm text-right text-yellow-300">En privada</p>
@@ -72,8 +75,8 @@ export default {
     },
     setup({ data }) {
 
-        const imageSrc = (modelo) => {
-            return new URL(`../assets/casas/${modelo}.png`, import.meta.url).href
+        const imageSrc = (image, path) => {
+            return new URL(`../assets/${path}/${image}.png`, import.meta.url).href
         }
 
         return {
