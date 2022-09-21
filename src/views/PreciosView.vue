@@ -2,8 +2,8 @@
     <!-- <NavBar></NavBar> -->
 
 
-    <div class="flex flex-1 flex-col py-5 ">
-        <LoadComponent v-if="!data" color="#D81B60"/>
+    <div class="h-full w-full py-5 ">
+        <LoadComponent v-if="!data" color="#D81B60" />
         <CarouselComponent :data={data} v-if="data?.length > 0" />
 
         <div v-if="data?.length == 0" class="p-10">

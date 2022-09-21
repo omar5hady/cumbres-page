@@ -2,17 +2,28 @@
 
     <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="w-screen">
         <slide v-for="slide in data.data" :key="slide">
-                <Card :data="slide" />
-            
+            <Card :data="slide" @open-modal="openModal" />
         </slide>
 
         <template #addons>
 
             <Navigation class="mx-10" />
 
-
         </template>
     </carousel>
+
+    <div v-show="showModal" id="modal"
+        class="modal-content flex transition fade-in delay-2550 fixed top-0 left-0 z-80 w-screen h-screen bg-black/70  justify-center items-center">
+
+        <!-- The close button -->
+        <button class="fixed z-90 top-6 right-8 text-white text-5xl font-bold"
+            @click.self="closeModal()">&times;</button>
+
+        <!-- A big image will be displayed here -->
+        <img v-show="modalImage" :src="modalImage" width="820" class="object-contain" />
+    </div>
+
+
 
 
 </template>
@@ -21,7 +32,7 @@
 // If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 
 export default {
     name: 'App',
@@ -34,7 +45,22 @@ export default {
         Navigation,
         Card: defineAsyncComponent(() => import("./CardComponent.vue"))
     },
-    setup: () => {
+    setup: (props) => {
+        const showModal = ref(false);
+        const modalImage = ref('');
+        return {
+            showModal,
+            openModal: (image) => {
+                console.log(image);
+                showModal.value = true;
+                modalImage.value = image;
+            },
+            closeModal: () => {
+                showModal.value = false
+
+            },
+            modalImage
+        }
 
     },
     data: () => ({
@@ -87,3 +113,13 @@ export default {
 
 };
 </script>
+
+<style scoped>
+.modal-content {
+    width: 100% !important;
+    position: absolute !important;
+    position: fixed !important;
+    overflow-y: none;
+}
+</style>
+      

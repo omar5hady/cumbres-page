@@ -2,24 +2,24 @@
 
     <div class="bg-card relative bg-cover rounded-xl w-[380px] h-[526px]">
         <img class="absolute top-3 right-6"
-            :src="imageSrc(data.proyecto.replace(/\s/g, '').toLowerCase(),'logosFraccionamientos')" width="380"
+            :src="imageSrc('logosFraccionamientos',data.proyecto.replace(/\s/g, '').toLowerCase()+'.png')" width="380"
             alt="no image" height="200" />
         <div class="p-0 flex flex-col justify-center items-center mt-24">
             <div>
                 <Title :title="data.prototipo" />
             </div>
-            <img class="translate-y-7" :src="imageSrc(data.prototipo.replace(/\s/g, '').toLowerCase(),'casas')"
+            <img class="translate-y-7" :src="imageSrc('casas',data.prototipo.replace(/\s/g, '').toLowerCase()+'.png')"
                 alt="product image" width="180" height="190" />
 
             <div class="transform translate-y-8">
                 <p class="font-bebas text-3xl text-center tracking-wide font-medium z-10 text-yellow-300">
                     ${{formatNumber((data.precio_base+data.ajuste+data.excedente_terreno).toFixed(2))}}</p>
-                    <div class="transform -translate-y-1/4 -translate-x-3">
-                        <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
-                            class="font-bebas text-sm opacity-60 font-extralight text-right text-white">En privada</p>
-                        <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'"
-                            class="font-bebas text-sm opacity-60 font-extralight text-right text-white">En exterior</p>
-                    </div>
+                <div class="transform -translate-y-1/4 -translate-x-3">
+                    <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
+                        class="font-bebas text-sm opacity-60 font-extralight text-right text-white">En privada</p>
+                    <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'"
+                        class="font-bebas text-sm opacity-60 font-extralight text-right text-white">En exterior</p>
+                </div>
             </div>
             <div class="transform translate-y-7">
                 <div class="flex items-center justify-center">
@@ -47,16 +47,16 @@
         </div>
 
         <div class="flex flex-1 mr-6 transform translate-y-14">
-            <a href="#"
+            <button @click="openModal(imageSrc('casasInfo',data.prototipo.replace(/\s/g, '').toLowerCase()+'.jpg'))"
                 class="ml-auto font-bebas text-white bg-pink-600 focus:outline-none font-extralight rounded-2xl text-base px-9 -py-1/2 text-center">
-                +&nbsp;&nbsp;&nbsp;Info</a>
+                +&nbsp;&nbsp;&nbsp;Info</button>
         </div>
     </div>
 
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 import RulerSquareIcon from 'vue-material-design-icons/RulerSquare.vue';
 import CropSquareIcon from 'vue-material-design-icons/CropSquare.vue';
 import MapSearchIcon from 'vue-material-design-icons/MapSearch.vue';
@@ -67,7 +67,7 @@ export default {
     props: {
         data: Object
     },
-
+    emits: ['open-modal'],
     components: {
         NavBar: defineAsyncComponent(() => import('../components/NavBar.vue')),
         Title: defineAsyncComponent(() => import('../components/TitleCardComponent.vue')),
@@ -76,15 +76,20 @@ export default {
         MapSearchIcon,
         MapMarkerRadiusIcon
     },
-    setup({ data }) {
+    setup({ data }, { emit }) {
 
-        const imageSrc = (image, path) => {
-            return new URL(`../assets/${path}/${image}.png`, import.meta.url).href
+        const imageSrc = (path, image) => {
+            return new URL(`../assets/${path}/${image}`, import.meta.url).href
         }
+
 
         return {
             imageSrc,
-            formatNumber
+            formatNumber,
+            openModal: (image) => {
+                emit('open-modal', image);
+            }
+
         }
 
     },
