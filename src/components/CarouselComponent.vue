@@ -62,6 +62,17 @@ export default {
                 snapAlign: 'center',
             },
 
+            1620: {
+                itemsToShow: 3.5,
+                snapAlign: 'center',
+            },
+
+            // 2000 and up
+            2000: {
+                itemsToShow: 4.5,
+                snapAlign: 'center',
+            },
+
             600: {
                 itemsToShow: 1.5,
                 snapAlign: 'center'

@@ -14,30 +14,31 @@
             <div class="transform translate-y-8">
                 <p class="font-bebas text-3xl text-center tracking-wide font-medium z-10 text-yellow-300">
                     ${{formatNumber((data.precio_base+data.ajuste+data.excedente_terreno).toFixed(2))}}</p>
-                    <div class="transform translate-x-8">
+                    <div class="transform -translate-y-1/4 -translate-x-3">
                         <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
-                            class="font-bebas font-extralight text-sm text-right text-yellow-300">En privada</p>
+                            class="font-bebas text-xs opacity-60 font-extralight text-right text-white">En privada</p>
                         <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'"
-                            class="font-bebas text-sm text-right text-yellow-300">En exterior</p>
+                            class="font-bebas text-xs font-extralight text-right text-white">En exterior</p>
                     </div>
             </div>
             <div class="transform translate-y-8">
                 <div class="flex items-center justify-center">
-                    <RulerSquareIcon fillColor="#ffffff" />
-                    <span class="font-bebas text-yellow-300 font-normal text-lg ">{{data.construccion.toFixed(1)}}
-                        m²</span>
+                    <RulerSquareIcon fillColor="#fac815" />
+                    <span class="font-bebas text-white font-normal text-lg ">{{data.construccion.toFixed(1)}}
+                        m²</span>&nbsp;&nbsp;
 
-                    <CropSquareIcon fillColor="#ffffff" />
-                    <span class="font-bebas text-yellow-300 font-normal text-lg">{{data.terreno_m > data.terreno ?
+                    <CropSquareIcon fillColor="#fac815" />
+                    <span class="font-bebas text-white font-normal text-lg">{{data.terreno_m > data.terreno ?
                     data.terreno_m.toFixed(1) : data.terreno.toFixed(1)}} m²</span>
 
 
                 </div>
                 <div class="flex items-center justify-center space-x-1">
-                    <MapSearchIcon fillColor="#ffffff" :size="20" />
-                    <span class="font-bebas text-yellow-300 font-normal text-lg">Mzn. {{data.manzana}}</span>
-                    <MapMarkerRadiusIcon fillColor="#ffffff" :size="18" />
-                    <span class="font-bebas text-yellow-300 font-normal text-lg">Lt. {{data.num_lote}} {{(data.sublote)
+                    <MapSearchIcon fillColor="#fac815" :size="20" />
+                    <span class="font-bebas text-white font-normal text-lg">Mzn. {{data.manzana}}</span>
+                    &nbsp;
+                    <MapMarkerRadiusIcon fillColor="#fac815" :size="18" />
+                    <span class="font-bebas text-white font-normal text-lg">Lt. {{data.num_lote}} {{(data.sublote)
                     ? 'Int. '.data.sublote:''}}</span>
                 </div>
             </div>
