@@ -8,16 +8,18 @@
             <div>
                 <Title :title="data.prototipo" />
             </div>
-            <img class="translate-y-10" :src="imageSrc(data.prototipo.replace(/\s/g, '').toLowerCase(),'casas')"
+            <img class="translate-y-7" :src="imageSrc(data.prototipo.replace(/\s/g, '').toLowerCase(),'casas')"
                 alt="product image" width="180" height="190" />
 
             <div class="transform translate-y-8">
                 <p class="font-bebas text-3xl text-center tracking-wide font-medium z-10 text-yellow-300">
                     ${{formatNumber((data.precio_base+data.ajuste+data.excedente_terreno).toFixed(2))}}</p>
-                <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
-                    class="font-bebas font-extralight text-sm text-right text-yellow-300">En privada</p>
-                <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'"
-                    class="font-bebas text-sm text-right text-yellow-300">En exterior</p>
+                    <div class="transform translate-x-8">
+                        <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
+                            class="font-bebas font-extralight text-sm text-right text-yellow-300">En privada</p>
+                        <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'"
+                            class="font-bebas text-sm text-right text-yellow-300">En exterior</p>
+                    </div>
             </div>
             <div class="transform translate-y-8">
                 <div class="flex items-center justify-center">
