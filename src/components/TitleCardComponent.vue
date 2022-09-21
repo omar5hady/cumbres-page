@@ -1,19 +1,19 @@
 <template>
     <div class="relative flex space-x-2 translate-y-2">
         <div v-if="palabra2">
-            <h1 class="font-bebas opacity-60 outline-title text-2xl tracking-wider text-white">
+            <h1 class="font-bebas opacity-0 outline-title text-2xl tracking-wider text-primary-900">
                 {{palabra2}}
             </h1>
-            <h1 class="font-bebas absolute top-1 translate-x-2 text-2xl tracking-wider text-white">
+            <h1 class="font-bebas absolute top-0 translate-x-2 text-2xl tracking-wider text-white">
                 {{palabra2}}
             </h1>
         </div>
 
         <div>
-            <h1 class="font-bebas opacity-60 outline-title text-5xl tracking-wider text-white">
+            <h1 class="font-bebas opacity-0 outline-title text-5xl tracking-wider text-primary-900">
                 {{palabra}}
             </h1>
-            <h1 class="font-bebas absolute top-1 transform translate-x-2 text-5xl tracking-wider text-white">
+            <h1 class="font-bebas absolute top-0 transform translate-x-2 text-5xl tracking-wider text-white">
                 {{palabra}}
             </h1>
         </div>

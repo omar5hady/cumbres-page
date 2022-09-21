@@ -2,7 +2,7 @@
 
     <div class="bg-card relative bg-cover rounded-xl w-[380px] h-[526px]">
         <img class="absolute top-3 right-6"
-            :src="imageSrc(data.proyecto.replace(/\s/g, '').toLowerCase(),'logosFraccionamientos')" width="280"
+            :src="imageSrc(data.proyecto.replace(/\s/g, '').toLowerCase(),'logosFraccionamientos')" width="380"
             alt="no image" height="200" />
         <div class="p-0 flex flex-col justify-center items-center mt-24">
             <div>
