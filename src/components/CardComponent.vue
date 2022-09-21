@@ -16,28 +16,28 @@
                     ${{formatNumber((data.precio_base+data.ajuste+data.excedente_terreno).toFixed(2))}}</p>
                     <div class="transform -translate-y-1/4 -translate-x-3">
                         <p v-if="data.etapa !=='EXTERIOR' && data.etapa !=='EXTERIOR 2'"
-                            class="font-bebas text-xs opacity-60 font-extralight text-right text-white">En privada</p>
+                            class="font-bebas text-sm opacity-60 font-extralight text-right text-white">En privada</p>
                         <p v-if="data.etapa === 'EXTERIOR' || data.etapa === 'EXTERIOR 2'"
-                            class="font-bebas text-xs font-extralight text-right text-white">En exterior</p>
+                            class="font-bebas text-sm opacity-60 font-extralight text-right text-white">En exterior</p>
                     </div>
             </div>
-            <div class="transform translate-y-8">
+            <div class="transform translate-y-7">
                 <div class="flex items-center justify-center">
-                    <RulerSquareIcon fillColor="#fac815" />
+                    <RulerSquareIcon fillColor="#00AAEF" />
                     <span class="font-bebas text-white font-normal text-lg ">{{data.construccion.toFixed(1)}}
                         m²</span>&nbsp;&nbsp;
 
-                    <CropSquareIcon fillColor="#fac815" />
+                    <CropSquareIcon fillColor="#00AAEF" />
                     <span class="font-bebas text-white font-normal text-lg">{{data.terreno_m > data.terreno ?
                     data.terreno_m.toFixed(1) : data.terreno.toFixed(1)}} m²</span>
 
 
                 </div>
                 <div class="flex items-center justify-center space-x-1">
-                    <MapSearchIcon fillColor="#fac815" :size="20" />
+                    <MapSearchIcon fillColor="#00AAEF" :size="20" />
                     <span class="font-bebas text-white font-normal text-lg">Mzn. {{data.manzana}}</span>
                     &nbsp;
-                    <MapMarkerRadiusIcon fillColor="#fac815" :size="18" />
+                    <MapMarkerRadiusIcon fillColor="#00AAEF" :size="18" />
                     <span class="font-bebas text-white font-normal text-lg">Lt. {{data.num_lote}} {{(data.sublote)
                     ? 'Int. '.data.sublote:''}}</span>
                 </div>
@@ -46,10 +46,10 @@
 
         </div>
 
-        <div class="flex flex-1 mr-6 transform translate-y-12">
+        <div class="flex flex-1 mr-6 transform translate-y-14">
             <a href="#"
-                class="ml-auto font-bebas text-white bg-pink-600 focus:outline-none font-medium rounded-2xl text-base px-6 py-1 text-center">+
-                Info</a>
+                class="ml-auto font-bebas text-white bg-pink-600 focus:outline-none font-extralight rounded-2xl text-base px-9 -py-1/2 text-center">
+                +&nbsp;&nbsp;&nbsp;Info</a>
         </div>
     </div>
 
