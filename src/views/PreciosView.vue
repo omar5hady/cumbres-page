@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { defineAsyncComponent, onMounted, ref } from 'vue'
+import { defineAsyncComponent, onMounted,ref } from 'vue'
 import CarouselComponent from '../components/CarouselComponent.vue';
 import LoadComponent from '../components/LoadComponent.vue';
 import { useModelos } from '../composables/useModelos';
@@ -42,7 +42,6 @@ export default {
 
         onMounted(async () => {
             data.value = await useModelos(proyecto, privada, modelo);
-
         });
 
 

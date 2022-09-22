@@ -37,6 +37,9 @@ module.exports = {
         800: "#1e293b",
         900: "#00AAEF",
       },
+      instagram:{
+        100: "#d6249f"
+      }
     },
     fontFamily: {
       bebas: ["Bebas Neue", "sans-serif"],

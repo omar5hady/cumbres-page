@@ -13,14 +13,14 @@
     </carousel>
 
     <div v-show="showModal" id="modal"
-        class="modal-content flex transition fade-in delay-2550 fixed top-0 left-0 z-80 w-screen h-screen bg-black/70  justify-center items-center">
+        class="modal-content flex transition fade-in delay-2550 fixed top-0 left-0 z-80 w-screen h-screen bg-black/90  justify-center items-center">
 
         <!-- The close button -->
         <button class="fixed z-90 top-6 right-8 text-white text-5xl font-bold"
             @click.self="closeModal()">&times;</button>
 
         <!-- A big image will be displayed here -->
-        <img v-show="modalImage" :src="modalImage" width="820" class="object-contain" />
+        <img v-show="modalImage" :src="modalImage"  class="object-contain h-5/6 hover:h-full transition ease-in-out delay-150 bg-blue-500" />
     </div>
 
 

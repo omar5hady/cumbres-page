@@ -8,7 +8,12 @@
           <div class="flex space-x-4">
             <!-- logo  -->
             <router-link
-              :to="{ name: 'home' }"
+              :to="{ name: 'home',
+                    query: { proyecto: 'catara',
+                      privada: 'torino',
+                      modelo: ''
+                    }
+               }"
               class="flex items-center space-x-2 py-2 px-1"
             >
               <img
