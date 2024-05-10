@@ -8,16 +8,10 @@
                         WhatsApp Ventas: <a href="https://api.whatsapp.com/send/?phone=5214441606071&text&type=phone_number&app_absent=0" target="_blank" class="hover:text-green-900 hover:font-bold hover:underline">(444) 160 6071</a>
                     </li>
                     <li class="mb-4">
-                        Catâra Ventas: <a href="#" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 168 7062</a>
+                        Catâra /Imperia: <a href="tel:+52444132 3344" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 132 3344</a>
                     </li>
                     <li class="mb-4">
-                        Montena Ventas: <a href="#" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 298 3400</a>
-                    </li>
-                    <li class="mb-4">
-                        Valle Real /Alcazâr Ventas:<a href="#" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 168 8001</a>
-                    </li>
-                    <li class="mb-4">
-                        Atención Proveedores <a href="#" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 833 46 83</a>
+                        Sirenia /Valle Real /Neden: <a href="tel:+524441067420" class="hover:text-secondary-50 hover:font-bold hover:underline">(444) 106 7420</a>
                     </li>
                 </ul>
             </div>
@@ -43,14 +37,14 @@
             <div>
                 <ul class="text-gray-500 dark:text-gray-400 items-center">
                     <li class="mb-1 text-center items-center">
-                        <img alt="Vue logo" src="../assets/logoMenu1.png" class="ml-20 md:ml-5 w-40 px-2 color-black">
-                        <h1 class="font-extrabold font-mono text-2xl">Tu familia primero</h1>
+                        <img alt="Vue logo" src="../assets/logoMenu1.png" class="ml-20 md:ml-20 w-40 px-0 color-black">
+                        <h1 class="font-extrabold font-mono text-3xl">Tu familia primero</h1>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="py-6 px-4 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2022 <a href="https://www.casascumbres.mx/wp-content/uploads/2016/05/Poli%CC%81ticaDePrivacidad.pdf" target="_blank">Grupo Constructor Cumbres</a>. All Rights Reserved.
+            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a href="https://www.casascumbres.mx/wp-content/uploads/2016/05/Poli%CC%81ticaDePrivacidad.pdf" target="_blank">Grupo Constructor Cumbres</a>. All Rights Reserved.
             </span>
             <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
                 <a href="https://www.facebook.com/CasasCumbresSLP" target="_blank" class="text-gray-400 hover:text-blue-600 dark:hover:text-white">

@@ -1,16 +1,18 @@
 <template>
 
-    <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="w-screen">
-        <slide v-for="slide in data.data" :key="slide">
-            <Card :data="slide" @open-modal="openModal" />
-        </slide>
-
-        <template #addons>
-
-            <Navigation class="mx-10" />
-
-        </template>
-    </carousel>
+    <div class="py-10">
+        <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="w-screen">
+            <slide v-for="slide in data.data" :key="slide">
+                <Card :data="slide" @open-modal="openModal" />
+            </slide>
+    
+            <template #addons>
+    
+                <Navigation class="mx-10" />
+    
+            </template>
+        </carousel>
+    </div>
 
     <div v-show="showModal" id="modal"
         class="modal-content flex transition fade-in delay-2550 fixed top-0 left-0 z-80 w-screen h-screen bg-black/90  justify-center items-center">
